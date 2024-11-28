@@ -3,6 +3,8 @@ const PlateData = require('./PlateData');
 const CheckListData = require('./CheckListData');
 const ServiceReportData = require('./ServiceReportData');
 const RemissionData = require('./RemissionData');
+const ImageDatasServiceReport = require('./ImageDatasServiceReport');
+
 
 PlateData.hasMany(ImageData, { foreignKey: 'plateId', as: 'image', onDelete: 'CASCADE' });
 ImageData.belongsTo(PlateData, { foreignKey: 'plateId', as: 'plate' });
@@ -36,6 +38,9 @@ RemissionData.belongsTo(PlateData, {
     foreignKey: 'plateId',   // Clave foránea que conecta ServiceReportData con PlateData
     as: 'plate'                  // Alias para referirse a PlateData desde ServiceReportdata
 });
+
+ServiceReportData.hasMany(ImageDatasServiceReport, { foreignKey: 'service_report_id', as: 'images', onDelete: 'CASCADE', hooks: true  });
+ImageDatasServiceReport.belongsTo(ServiceReportData, { foreignKey: 'service_report_id', as: 'service' });
 
 
 

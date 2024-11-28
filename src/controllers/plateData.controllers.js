@@ -4,13 +4,17 @@ const ImageData = require('../models/ImageData');
 const CheckListData = require('../models/CheckListData');
 const ServiceReportData = require('../models/ServiceReportData');
 const RemissionData = require('../models/RemissionData');
+const ImageDatasServiceReport = require('../models/ImageDatasServiceReport');
 
 const getAll = catchError(async(req, res) => {
     const results = await PlateData.findAll({
         include: [
             { model: ImageData, as: 'image' },
             { model: CheckListData, as: 'checkList' },
-            { model: ServiceReportData, as: 'serviceReport'},
+            { model: ServiceReportData, as: 'serviceReport', 
+                include: [
+                { model: ImageDatasServiceReport, as: 'images' }
+            ]},
             { model: RemissionData, as: 'Remission'}
         ]
     });

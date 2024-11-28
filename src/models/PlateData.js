@@ -9,7 +9,7 @@ const PlateData = sequelize.define('plateData', {
     },
     finalDate: {
         type: DataTypes.DATEONLY,
-        allowNull: false
+        allowNull: true
     },
     customer: {
         type: DataTypes.STRING(50),
@@ -17,59 +17,47 @@ const PlateData = sequelize.define('plateData', {
     },
     cat: {
         type: DataTypes.STRING(50),
-        allowNull: false
+        allowNull: true
     },
     user: {
         type: DataTypes.STRING(50),
-        allowNull: false
+        allowNull: true
     },
     hp: {
         type: DataTypes.STRING(50),
-        allowNull: false
+        allowNull: true
     },
     spec: {
         type: DataTypes.STRING(50),
-        allowNull: false
+        allowNull: true
     },
     frame: {
         type: DataTypes.STRING(50),
-        allowNull: false
+        allowNull: true
     },
     serie: {
         type: DataTypes.STRING(50),
-        allowNull: false
+        allowNull: true
     },
     volts: {
         type: DataTypes.STRING(50),
-        allowNull: false
-    },
-    catalog: {
-        type: DataTypes.STRING(50),
-        allowNull: false
+        allowNull: true
     },
     equipment: {
         type: DataTypes.STRING(50),
-        allowNull: false
-    },
-    power: {
-        type: DataTypes.STRING(50),
-        allowNull: false
+        allowNull: true
     },
     brand: {
         type: DataTypes.STRING(50),
-        allowNull: false
+        allowNull: true
     },    
-    remissionNum: {
-        type: DataTypes.STRING(50),
-        allowNull: false
-    },
     note: {
         type: DataTypes.STRING(50),
-        allowNull: false
+        allowNull: true
     },
     quote: {
         type: DataTypes.STRING(50),
-        allowNull: false
+        allowNull: true
     },
   }, {
     tableName: 'plate_data',

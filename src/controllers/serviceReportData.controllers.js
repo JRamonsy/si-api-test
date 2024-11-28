@@ -1,8 +1,14 @@
 const catchError = require('../utils/catchError');
 const ServiceReportData = require('../models/ServiceReportData');
+const ImageDatasServiceReport = require('../models/ImageDatasServiceReport');
 
 const getAll = catchError(async(req, res) => {
-    const results = await ServiceReportData.findAll();
+    const results = await ServiceReportData.findAll({
+            include: [
+                { model: ImageDatasServiceReport, as: 'images' },
+
+            ]
+        });
     return res.json(results);
 });
 
@@ -13,7 +19,12 @@ const create = catchError(async(req, res) => {
 
 const getOne = catchError(async(req, res) => {
     const { id } = req.params;
-    const result = await ServiceReportData.findByPk(id);
+    const result = await ServiceReportData.findByPk(id, {
+        include: [
+            { model: ImageDatasServiceReport, as: 'images' },
+
+        ]
+    });
     if(!result) return res.sendStatus(404);
     return res.json(result);
 });

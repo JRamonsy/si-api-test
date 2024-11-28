@@ -14,9 +14,9 @@ const RemissionData = sequelize.define('remissionData', {
         type: DataTypes.STRING(50),
         allowNull: false
     },
-    folio: {
-        type: DataTypes.STRING(50),
-        allowNull: false
+    remissionDate: {
+        type: DataTypes.DATEONLY,
+        allowNull: true
     },
     receivedDate: {
         type: DataTypes.DATEONLY,
